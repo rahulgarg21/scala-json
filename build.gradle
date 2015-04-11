@@ -1,0 +1,28 @@
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'eclipse-wtp'
+
+group = 'com.polyglot.json'
+archivesBaseName = 'scala-json'
+version = '1.0-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+apply from: 'dependencies.gradle'
+
+dependencies {
+	compile(
+	//------------scala-------------
+	[group:'org.scala-lang', name:'scala-library', version:ver.scala_library],
+	//-----------jackson------------
+	[group:'com.fasterxml.jackson.core', name:'jackson-databind', version:ver.jackson],
+	[group:'com.fasterxml.jackson.module', name:'jackson-module-scala_' + (scala_version), version:ver.jackson],
+	)
+
+	testCompile(
+	[group:'junit', name:'junit', version:ver.junit],
+	[group:'org.scalatest', name:'scalatest_'+scala_version, version:ver.scalatest],
+	)
+} 

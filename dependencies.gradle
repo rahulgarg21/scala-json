@@ -1,0 +1,9 @@
+ext.scala_version='2.11'
+
+ext.ver = [
+	scala_library		:		('scala_version' + '.4'),
+	jackson				:		'2.5.1',
+	//testing
+	junit			: 	'4.12',
+	scalatest		:	'2.2.0',
+]
