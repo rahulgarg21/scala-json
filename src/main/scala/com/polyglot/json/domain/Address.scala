@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonIgnore
 import scala.beans.BeanProperty
 
-case class Address(  var road:String, 
+case class Address( @JsonProperty("address1") var road:String, 
                var city: String, 
                var state: String, 
                var zipCode: Int) {
