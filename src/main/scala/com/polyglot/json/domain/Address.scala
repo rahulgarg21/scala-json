@@ -1,17 +1,10 @@
 package com.polyglot.json.domain
 
-import com.fasterxml.jackson.annotation.JsonCreator
-import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonIgnore
-import scala.beans.BeanProperty
+import com.fasterxml.jackson.annotation.{JsonGetter, JsonSetter}
 
-case class Address( @JsonProperty("address1") var road:String, 
-               var city: String, 
-               var state: String, 
-               var zipCode: Int) {
-  
- @JsonProperty("roads")def setRoads(road:String) { this.road = road}
-// @JsonIgnore def getRoads():String = road
- @JsonProperty("zip") def setZip(zip:Int) { this.zipCode = zip}
-
-}
+case class Address(
+                    @JsonGetter("road") @JsonSetter("road") var road: String,
+                    @JsonGetter("city") @JsonSetter("city") var city: String,
+                    @JsonGetter("state") @JsonSetter("state") var state: String,
+                    @JsonGetter("zipCode") @JsonSetter("zip") var zipCode: String
+                    )

@@ -8,8 +8,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import java.io.StringWriter
 import com.polyglot.json.domain.Address
 import com.polyglot.json.domain.Person
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 
-class BaseTest extends WordSpecLike with MustMatchers {
+@RunWith(classOf[JUnitRunner])
+abstract class BaseTest extends WordSpecLike with MustMatchers {
   
   val objectMapper:ObjectMapper = new ObjectMapper
   objectMapper.registerModule(DefaultScalaModule)
@@ -26,6 +29,6 @@ class BaseTest extends WordSpecLike with MustMatchers {
     objectMapper.readValue(jsonString, cls)
   }
   
-  val testAddress = new Address("962 Clarke Rd", "North Brunswick", "NJ", 8902)
+  val testAddress = new Address("962 Clarke Rd", "North Brunswick", "NJ", "08902")
   val testPerson = Person("Rajiv", "Singla", testAddress)
 }

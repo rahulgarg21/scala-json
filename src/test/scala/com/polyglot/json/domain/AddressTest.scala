@@ -21,7 +21,7 @@ class AddressTest extends BaseTest {
       val addressFromJson: Address = fromJson(addressNodeJson, classOf[Address])
       println(addressFromJson)
 
-      val nonStdAddressJsonString: String = """{"roads":"962 Clarke Rd","state":"NJ","zip":8902, "city":"North Brunswick", "test":"test"}"""
+      val nonStdAddressJsonString: String = """{"road":"962 Clarke Rd","state":"NJ","zip":"08902", "city":"North Brunswick", "test":"test"}"""
       val nonStdAddressFromJson: Address = fromJson(nonStdAddressJsonString, classOf[Address])
       println(nonStdAddressFromJson)
       println(toJson(nonStdAddressFromJson))
